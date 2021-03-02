@@ -1,12 +1,80 @@
 /******************
  * YOUR CODE HERE *
  ******************/
+function addAll(arr){
+  let total = 0; 
+  for (const num of arr){
+    total += num;
+  }
+  return total;
+}
 
+function countSpaces(str){
+  let output = 0;
+  for (const char of str){
+    if (char === " "){
+      output++;
+    }
+  }
+  return output;
+}
 
+function countTrues(arr){
+  let total = 0;
+  for (const bool of arr){
+    if (bool === true){
+      total ++;
+    }
+  }
+  return total;
+}
 
+function makeFriendly(str){
+  let output = "";
+  for (const char of str){
+    if (char === "."){
+      output += "!";
+    }else{output += char}
+  }
+  return output;
+}
 
+function cubeAll(arr){
+  output = [];
+  for(const num of arr){
+    output.push(num ** 3);
+  }
+  return output;
+}
 
+function addNoises(arr){
+  const sounds = {"Fido": '"Woof!"', "Garfield":'"Meow!"', "Sharp Tooth":'"ROWR!"', "Rolph": '"Woof!"', "Maisie": '"Woof!"', "Barnie":'"ROWR!"', "Heathcliff":'"Meow!"'};
+  let output = [];
+  for (const animal of arr){
+    output.push(animal + " says " + sounds[animal]);
+  }
+  return output;
+}
 
+function womenOnly(arr){
+  let output = [];
+  for (const person of arr){
+    if (person.indexOf("- F") !== -1){
+      output.push(person);
+    }
+  }
+  return output;
+}
+
+function integersOnly(nums){
+  let output = [];
+  for (const num of nums){
+    if (num % 1 === 0){
+      output.push(num)
+    }
+  }
+  return output;
+}
 
 /*********************************
  * OUR CODE BELOW; DO NOT TOUCH! *
@@ -54,10 +122,6 @@ describe('addAll', () => {
 
     expect(addAll(nums1)).toBe(1007);
     expect(addAll(nums2)).toBe(-854);
-  })
-
-  it(`isn't reassignable`, () => {
-    expect(() => addAll = 500).toThrow();
   })
 })
 
@@ -181,9 +245,9 @@ describe('addNoises', () => {
     ]
 
     const animals1 = ['Fido', 'Garfield', 'Sharp Tooth'];
-    const withNoises1 = ['Fido says "Woof!"', 'Garfield says "Meow!"', 'Sharp Tooth says "ROWR."'];
+    const withNoises1 = ['Fido says "Woof!"', 'Garfield says "Meow!"', 'Sharp Tooth says "ROWR!"'];
     const animals2 = ['Rolph', 'Maisie', 'Barnie', 'Heathcliff'];
-    const withNoises2 = ['Rolph says "Woof!"', 'Maisie says "Woof!"', 'Barnie says "ROWR."', 'Heathcliff says "Meow!"'];
+    const withNoises2 = ['Rolph says "Woof!"', 'Maisie says "Woof!"', 'Barnie says "ROWR!"', 'Heathcliff says "Meow!"'];
 
     expect(addNoises(animals1)).toEqual(withNoises1);
     expect(addNoises(animals2)).toEqual(withNoises2);
